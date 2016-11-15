@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.mason.le.createEvent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        <DatePicker
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></DatePicker>
+
+    </android.support.design.widget.AppBarLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:maxLines="1"
+            android:id="@+id/editText_adress" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Address"
+            android:id="@+id/textView3"
+            android:layout_alignTop="@+id/editText_adress"
+            android:layout_alignLeft="@+id/editText_adress"
+            android:layout_alignStart="@+id/editText_adress"
+            android:layout_marginTop="-20dp" />
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="Time"
+            android:id="@+id/btm_time"
+            android:layout_below="@+id/editText_adress"
+            android:layout_alignLeft="@+id/editText_adress"
+            android:layout_alignStart="@+id/editText_adress"
+            android:layout_marginTop="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Time"
+            android:id="@+id/textView4"
+            android:layout_alignTop="@+id/btm_time"
+            android:layout_alignLeft="@+id/btm_time"
+            android:layout_alignStart="@+id/btm_time"
+            android:layout_marginTop="-20dp" />
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="Date"
+            android:id="@+id/btn_date"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/btm_time"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Date"
+            android:id="@+id/textView5"
+            android:layout_alignTop="@+id/btn_date"
+            android:layout_alignLeft="@+id/btn_date"
+            android:layout_alignStart="@+id/btn_date"
+            android:layout_marginTop="-20dp" />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:id="@+id/editText_discription"
+            android:layout_below="@+id/btn_date"
+            android:layout_alignLeft="@+id/btn_date"
+            android:layout_alignStart="@+id/btn_date"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Description"
+            android:id="@+id/textView6"
+            android:layout_alignTop="@+id/editText_discription"
+            android:layout_alignLeft="@+id/editText_discription"
+            android:layout_alignStart="@+id/editText_discription"
+            android:layout_marginTop="-20dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New RadioButton"
+            android:id="@+id/radioButton"
+            android:layout_below="@+id/editText_discription"
+            android:layout_alignLeft="@+id/editText_discription"
+            android:layout_alignStart="@+id/editText_discription" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CreateEvent"
+            android:id="@+id/btn_createEvent"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/radioButton"
+            android:layout_marginTop="15dp" />
+
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
