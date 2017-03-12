@@ -7,22 +7,31 @@ import com.google.android.gms.maps.model.LatLng;
  */
 public class Event {
 
-    protected LatLng latLng;
-    protected String description;
-    protected String date;
-    protected String time;
-    protected Boolean privacy;
+    public double lat;
+    public double lng;
+    public int hour;
+    public int minute;
+    public String description;
+    public int day;
+    public int month;
+    public int year;
+
+    public Event(Object testValues) {
+    }
 
 
     public void Event(){
 
     }
 
-    public Event(LatLng latLng, String description,String date, String time, Boolean privacy){
-        this.latLng = latLng;
+    public Event(double lat, double lng, String description, int hour, int minute, int day, int month, int year){
+        this.lat = lat;
+        this.lng = lng;
         this.description = description;
-        this.date = date;
-        this.time = time;
-        this.privacy = privacy;
+        this.hour = hour;
+        this.minute = minute;
+        this.day = day;
+        this.month = month;
+        this.year = year;
     }
 }

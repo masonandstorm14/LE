@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Email"
+        android:text="LogIn"
         android:id="@+id/textView"
         android:layout_alignLeft="@+id/editText_emailLogIn"
         android:layout_alignStart="@+id/editText_emailLogIn"
@@ -69,10 +69,10 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Dont Have An Account?"
         android:id="@+id/textView2"
-        android:textSize="10dp"
+        android:textSize="12dp"
         android:layout_below="@+id/btn_logIn"
         android:layout_marginTop="0dp"
-        android:layout_marginLeft="90dp" />
+        android:layout_marginLeft="70dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -83,7 +83,7 @@
         android:layout_below="@+id/btn_logIn"
         android:layout_toRightOf="@+id/textView2"
         android:layout_toEndOf="@+id/textView2"
-        android:textSize="10dp"
+        android:textSize="12dp"
         android:textColor="@color/colorPrimary"
         android:layout_marginLeft="5dp" />
 

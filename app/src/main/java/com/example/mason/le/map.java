@@ -8,6 +8,7 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -28,7 +29,12 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.net.Socket;
 
 public class map extends AppCompatActivity
 
@@ -38,6 +44,7 @@ public class map extends AppCompatActivity
 
     private GoogleMap mMap;
     private FirebaseAuth auth;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +54,11 @@ public class map extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         auth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         //sets up the location listener
         final LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         final Criteria criteria = new Criteria();
-
-        Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
-
 
         //sets up the map
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -63,6 +68,9 @@ public class map extends AppCompatActivity
             @Override
             public void onMapReady(GoogleMap googleMap) {
                 mMap = googleMap;
+                Handler handler = new Handler();
+                SocketThread socketThread = new SocketThread(handler, databaseReference, auth);
+                socketThread.start();
 
                 if(ContextCompat.checkSelfPermission(map.this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
                     mMap.setMyLocationEnabled(true);
@@ -70,7 +78,6 @@ public class map extends AppCompatActivity
                     ActivityCompat.requestPermissions(map.this,
                             new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},1
                     );
-
                 }
 
                 Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
@@ -162,8 +169,15 @@ public class map extends AppCompatActivity
         return true;
     }
 
+    public void update(Event event){
+        LatLng latLng = new LatLng(event.lat, event.lng);
+        mMap.addMarker(new MarkerOptions().position(latLng));
+    }
+
     protected void mover(Class move) {
         Intent i = new Intent(this, move);
         startActivity(i);
     }
+
+
 }

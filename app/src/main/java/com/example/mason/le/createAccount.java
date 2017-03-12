@@ -35,7 +35,15 @@ public class createAccount extends AppCompatActivity {
         createAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(password.getText().toString().equals(passwordConfirm.getText().toString())){
+                //checks if feilds have values
+                if(email.getText().toString().equals("")){
+                    Toast.makeText(createAccount.this, "Enter Text For Email", Toast.LENGTH_LONG).show();
+                }else if(password.getText().toString().equals("")){
+                    Toast.makeText(createAccount.this, " Enter Text For Password", Toast.LENGTH_LONG).show();
+                }else if(passwordConfirm.getText().toString().equals("")){
+                    Toast.makeText(createAccount.this, "Enter Text For Confirm Password", Toast.LENGTH_LONG).show();
+                }else if(password.getText().toString().equals(passwordConfirm.getText().toString())){
+                    //checks if account exist
                     Auth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                 @Override
